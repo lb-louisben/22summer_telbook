@@ -11,7 +11,7 @@
     <script type="text/javascript">
         $(function () {
             $.get(
-                "${pageContext.request.contextPath}/cate/queryAllAjax"
+                "${pageContext.request.contextPath}/category/queryAllAjax"
                 , function (res) {
                     for (let i = 0; i < res.length; i++) {
                         // 判断是否是当前联系人所选择的

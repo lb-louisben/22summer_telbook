@@ -30,32 +30,21 @@
                     </td>
                     <td>
                         <p id="whereami"></p>
-                        <h1>联系人管理</h1>
-                        <a href="add.jsp">Add Person</a>
+                        <h1>分组管理</h1>
+                        <a href="add.jsp">添加分组</a>
                         <table class="table" style="background: url(../img/tableheader-bg.gif) no-repeat left top;">
                             <tr class="table_header">
-                                <td>姓名</td>
-                                <td>手机</td>
-                                <td>座机</td>
-                                <td>邮箱</td>
-                                <td>分组</td>
-                                <td>操作</td>
+                                <td>id</td>
+                                <td>分类</td>
                             </tr>
-                            <c:forEach items="${requestScope.list}" var="person">
+                            <c:forEach items="${requestScope.list}" var="cate">
                                 <tr class="row1">
-                                    <td>${person.name}</td>
-                                    <td>${person.mobile}</td>
-                                    <td>${person.telphone}</td>
-                                    <td>${person.email}</td>
-                                    <td>${person.category.categoryName}</td>
-                                    <td align="center">
-                                        <a href="${pageContext.request.contextPath}/person/modifyQuery?id=${person.id}">update</a>
-                                        <a href="javascript:void(0)" onclick="delConfirm(${person.id})">delete</a>
-                                    </td>
+                                    <td>${cate.categoryId}</td>
+                                    <td>${cate.categoryName}</td>
                                 </tr>
                             </c:forEach>
                         </table>
-                        当前第${requestScope.currentPage}页 共${requestScope.totalPage}页
+                        <%--当前第${requestScope.currentPage}页 共${requestScope.totalPage}页
                         <c:if test="${requestScope.currentPage <= 1}">
                             首页 上页
                         </c:if>
@@ -70,7 +59,7 @@
                         <c:if test="${requestScope.currentPage < requestScope.totalPage}">
                             <a href="${pageContext.request.contextPath}/person/queryByPage?currentPage=${requestScope.currentPage+1}">下页</a>
                             <a href="${pageContext.request.contextPath}/person/queryByPage?currentPage=${requestScope.totalPage}">尾页</a>
-                        </c:if>
+                        </c:if>--%>
                     </td>
                 </tr>
             </table>

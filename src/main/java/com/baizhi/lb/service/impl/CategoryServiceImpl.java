@@ -17,8 +17,25 @@ public class CategoryServiceImpl implements CategoryService {
     @Autowired
     private CategoryDao categoryDao;
 
+
+    /**
+     * 查找所有分组名称
+     *
+     * @return list 集合
+     */
     @Override
     public List<Category> queryAllCate() {
-        return categoryDao.selectAllCate();
+            return categoryDao.selectAllCate();
+    }
+
+    /**
+     * 新增一个名为 categoryName 的分组
+     *
+     * @param categoryName 新分组的名字
+     */
+    @Override
+    @Transactional
+    public void addOneCategory(String categoryName) {
+        categoryDao.insertOneCate(categoryName);
     }
 }

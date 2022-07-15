@@ -31,7 +31,6 @@
                         <value>/js</value>
                         <value>/main.jsp</value>
                         <value>/img</value>
-                        <value>/login</value>
                     </list>
                 </property>
             </bean>

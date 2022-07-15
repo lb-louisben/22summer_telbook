@@ -3,8 +3,13 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.baizhi.lb.dao.CategoryDao">
+    <insert id="insertOneCate">
+        insert into t_category(categoryId, categoryName)
+        values (null, #{categoryName})
+    </insert>
 
     <select id="selectAllCate" resultType="com.baizhi.lb.entity.Category">
-        select categoryid, categoryname from t_category
+        select categoryid, categoryname
+        from t_category
     </select>
 </mapper>
