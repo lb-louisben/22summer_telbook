@@ -7,6 +7,7 @@
     <title>main</title>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css"/>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/check.js"></script>
     <script type="text/javascript">
         $(function () {
             $.get(
@@ -41,12 +42,12 @@
                     <td>
                         <p id="whereami"></p>
                         <h1>修改联系人</h1>
-                        <form action="${pageContext.request.contextPath}/person/modifySave" method="post">
+                        <form onsubmit="return checkForm()" action="${pageContext.request.contextPath}/person/modifySave" method="post">
                             <input type="hidden" name="id" value="${requestScope.person.id}">
-                            姓名：<input name="name" value="${requestScope.person.name}"/><br/>
-                            手机：<input name="mobile" value="${requestScope.person.mobile}"/><br/>
-                            座机：<input name="telphone" value="${requestScope.person.telphone}"/><br/>
-                            邮箱：<input name="email" value="${requestScope.person.email}"/><br/>
+                            姓名：<input id="name" onblur="checkName()" name="name" value="${requestScope.person.name}"/><span id="nameMsg"></span><br/>
+                            手机：<input id="mobile" onblur="checkMobile()" name="mobile" value="${requestScope.person.mobile}"/><span id="mobileMsg"></span><br/>
+                            座机：<input id="telphone" onblur="checkTelphone()" name="telphone" value="${requestScope.person.telphone}"/><span id="telphoneMsg"></span><br/>
+                            邮箱：<input id="email" onblur="checkEmail()" name="email" value="${requestScope.person.email}"/><span id="emailMsg"></span><br/>
                             城市：<input name="city" value="${requestScope.person.city}"/><br/>
                             生日：<input name="birthday"
                                       value="<fmt:formatDate value='${requestScope.person.birthday}' pattern='yyyy-MM-dd'/>"/>
