@@ -16,24 +16,6 @@
                 return true;
             }
         }
-
-        function existSame(input, callback) {
-            $.get(
-                "${pageContext.request.contextPath}/category/queryAllAjax"
-                , function (res) { // ajax 异常通信 响应成功正确后 回调函数 res是响应后回来的js数组对象
-                    // 遍历数组，往 分组下拉列表中 添加
-                    for (let i = 0; i <= res.length; i++) {
-                        if (input === res[i].categoryName) {
-                            console.log(i + "yes")
-                            callback(true);
-                        }
-                    }
-                    callback(false)
-                }
-                , "json"
-            )
-        }
-
     </script>
 </head>
 <body>
